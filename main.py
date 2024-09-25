@@ -12,9 +12,11 @@ LIMIT 10
 def main():
 
     # read data
-    # results = read_postgresql(query=QUERY)
-    # df = process_data(results)
-    create_docs()
+    results = read_postgresql(query=QUERY)
+    # process data
+    df = process_data(results)
+    # output the templates
+    create_docs(df) # the input can be list of tuples as well, not sure if want to use dataframe
 
 if __name__ == "__main__":
     main()
