@@ -26,6 +26,7 @@ def convert_dbtype_arg(value):
 def main(args):
 
     # parse out the arguments
+    doc_name = args.document_name
     n = args.num
     db_type = args.db_type
 
@@ -36,13 +37,16 @@ def main(args):
     results = ReadData(query=query, db_type=db_type).read_data()
     # process data
     df = process_data(results)
-    print(df)
-    # # output the templates
-    # create_docs(df) # the input can be list of tuples as well, not sure if want to use dataframe
+    # output the templates
+    create_docs(doc_name, df) 
 
 if __name__ == "__main__":
 
     parser = ArgumentParser(description="Automatic Repressions Templates Generator")
+    parser.add_argument("document_name",  
+                        type=str, 
+                        default=5, 
+                        help="The name of the document")
     parser.add_argument("-n","--num",  
                         type=check_positive, 
                         default=5, 
