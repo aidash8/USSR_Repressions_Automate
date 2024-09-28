@@ -1,26 +1,36 @@
 import pandas as pd
-from docx import Document
+import docx
 
+def format_string(document: docx.Document, s: str):
+    heading = document.add_heading('', level=1)
+    run = heading.add_run(s)
+    run.bold = True
+    run.font.name = 'Arial'
+    run.font.size = docx.shared.Pt(19)
 
 def create_template(row, document):
 
+    p = document.add_paragraph()
+    p.paragraph_format.line_spacing = 1
+    p.paragraph_format.space_after = 0
+
     # Add name
-    document.add_paragraph(row['name'])
+    format_string(document=document, s=row['name'])
     # Add Age
-    document.add_paragraph(row['age'])
+    format_string(document=document, s=row['age'])
     # Add birth info
-    document.add_paragraph(row['birth_info'])
+    format_string(document, row['birth_info'])
     # Add profession
-    document.add_paragraph(row['профессия / место работы'])
+    format_string(document, row['профессия / место работы'])
     # Add demise info
-    document.add_paragraph(row['demise_info']) 
+    format_string(document, row['demise_info']) 
 
     document.add_page_break()
 
 
 def create_docs(name: str, df: pd.DataFrame):
     
-    doc = Document()
+    doc = docx.Document()
 
     for _,row in df.iterrows():
         create_template(row, doc)
