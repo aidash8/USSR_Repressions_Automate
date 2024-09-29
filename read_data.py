@@ -11,7 +11,7 @@ class ReadData:
         if self.db_type == DBType.POSTGRESQL:
             results = self._read_postgresql(db=DATABASE, user=USER, host=HOST, port=PORT)
         elif self.db_type == DBType.SQLITE:
-            results = self._read_sqlite("names.sqlite3")
+            results = self._read_sqlite("killed.sqlite3")
         elif self.db_type == DBType.SQLDUMP:
             raise NotImplementedError
         else:
