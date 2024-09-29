@@ -142,3 +142,4 @@ cython_debug/
 
 # PyCharm
 .idea/
+names.sqlite3
