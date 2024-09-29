@@ -9,7 +9,7 @@ class ReadData:
     def read_data(self):
         if self.db_type == DBType.POSTGRESQL:
             results = self._read_postgresql(db=DATABASE, user=USER, host=HOST, port=PORT)
-        elif self.db_type == DBType.SQLIGHT:
+        elif self.db_type == DBType.SQLITE:
             raise NotImplementedError 
         elif self.db_type == DBType.SQLDUMP:
             raise NotImplementedError

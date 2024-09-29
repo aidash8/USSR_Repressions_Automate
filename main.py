@@ -54,7 +54,7 @@ if __name__ == "__main__":
     parser.add_argument("-d", "--db_type", 
                         type=convert_dbtype_arg, 
                         choices=list(DBType),
-                        default=DBType.POSTGRESQL, 
+                        default=DBType.SQLITE,
                         help="DB type where data is stored")
     args = parser.parse_args()
 
