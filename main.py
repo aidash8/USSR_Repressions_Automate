@@ -43,9 +43,9 @@ def main(args):
 if __name__ == "__main__":
 
     parser = ArgumentParser(description="Automatic Repressions Templates Generator")
-    parser.add_argument("document_name",  
+    parser.add_argument("-dn", "--document-name",
                         type=str, 
-                        default=5, 
+                        default="output.docx",
                         help="The name of the document")
     parser.add_argument("-n","--num",  
                         type=check_positive, 
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     parser.add_argument("-d", "--db_type", 
                         type=convert_dbtype_arg, 
                         choices=list(DBType),
-                        default=DBType.POSTGRESQL, 
+                        default=DBType.SQLITE,
                         help="DB type where data is stored")
     args = parser.parse_args()
 

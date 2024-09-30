@@ -3,7 +3,7 @@ from enum import Enum
 # Database type where the data is hosted and from where it'll be read
 class DBType(Enum):
     POSTGRESQL = 1
-    SQLLIGHT = 2
+    SQLITE = 2
     SQLDUMP = 3
 
 # Postgresql
